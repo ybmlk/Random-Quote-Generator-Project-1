@@ -3,6 +3,9 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
+// timer for printQuote() function
+var intervalId = setInterval(printQuote, 20000);
+
 // an array of quotes with their sources, citation, year and topics
 var quotes = [
   {
@@ -113,9 +116,9 @@ function printQuote() {
   document.getElementById('demo').innerHTML = quoteHTML;
   // assigns a random color to the background
   document.querySelector('body').style.backgroundColor = getRandomColor();
+  // resets the timer
+  clearInterval(intervalId)
+  intervalId = setInterval(printQuote, 20000);
 }
 
 printQuote();
-
-// calls the printQuote() function every 5 seconds
-setInterval(printQuote, 5000);
